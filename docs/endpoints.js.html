@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: endpoints.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: endpoints.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import express from 'express'
+import { apply_patch } from 'jsonpatch'
+import { resolve, join } from 'path'
+import { readFileSync, createWriteStream } from 'fs'
+import { thumbnailSize } from '../imgutils/resize.js'
+import { verify } from 'jsonwebtoken'
+import request from 'request'
+var router = express.Router()
+
+/**
+ * It authenticate json_patching and thumbnail_generation api
+ * @name Api Authentications
+ * @param {object} req contains headers
+ * @param {object} res contains the decoded username and password
+ * @param {function} next
+ */
+
+// ###################################################################################
+//                           API VALIDATIONS
+// ###################################################################################
+router.use('/', function (req, res, next) {
+    // decode token
+  var token = req.headers.authorization
+  if (token) {
+        // verifies secret and checks exp
+    verify(token, 'anil', function (err, decoded) {
+      if (err) {
+        return res.status(403).send({message: 'Not authenticated'})
+      } else {
+                // if everything is good, save to request for use in other routes
+        req.decoded = decoded
+        next()
+      }
+    })
+  } else {
+    return res.status(403).send({
+      success: false,
+      message: 'No token provided.'
+    })
+  }
+})
+
+// ################################################################################
+
+//                          API FOR JSON_PATCHING
+
+// ################################################################################
+
+/**
+ * Api to apply json patch on json object and Update json
+ * @name Json-Patching
+ * @param {object} req contains jsonObject and Patch
+ * @param {object} res give patchedDocument op json
+ * @param {function} next
+ */
+
+router.post('/patch', function (req, res, next) {
+  if (typeof req.body.jsonObject === 'undefined') {
+    res.statusCode = 400
+    res.json({'message': 'missing jsonObject'})
+  } else if (typeof req.body.Patch === 'undefined') {
+    res.statusCode = 400
+    res.json({'message': 'missing patch operations'})
+  } else {
+    var jsonObject = req.body.jsonObject
+    var operation = req.body.Patch
+    try {
+      var patchDocument = apply_patch(jsonObject, operation)
+      res.statusCode = 200
+      res.json({patch: patchDocument})
+    } catch (e) {
+      res.statusCode = 400
+      res.json({'message': 'wrong patch operations'})
+    }
+  }
+})
+
+// ####################################################################################
+
+//                    API FOR THUMBNAIL_GENERATIONS
+
+// ####################################################################################
+/**
+ * Create thumbnail of image
+ * @name Thumbnail-Generation
+ * @param {object} req contains the url of image
+ * @param {object} res gives the thumnail image of 50*50 size
+ * @param {function} next
+ */
+//
+router.post('/thumbnail', function (req, res, next) {
+  if (typeof req.query.imageUrl !== 'undefined') {
+    var imageUrl = req.query.imageUrl
+    request.head(imageUrl, function (err, response, body) {
+      if (err) {
+        next(err)
+      } else {
+        var contentType = response.headers['content-type'].substring(0, 5)
+        var imgFormat = response.headers['content-type'].substring(6)
+        var date = response.headers['date'].split(' ').join('_')
+                // console.log(contentType);
+        if (response.statusCode === 200 &amp;&amp; contentType === 'image') {
+          if (response.headers['content-length'] &lt;= 10 * 1024 * 1024) {
+            const originalLocation = resolve(join(baseDirectory, 'img')) + '/original_' + date + '.' + imgFormat
+            const thumbnailLocation = resolve(join(baseDirectory, 'img')) + '/thumbnail_' + date + '.' + imgFormat
+            var stream = request.get(imageUrl).pipe(createWriteStream(originalLocation))
+            stream.on('finish', () => {
+              thumbnailSize(originalLocation, thumbnailLocation, (err, out) => {
+                if (err) {
+                  next(err)
+                } else {
+                  res.writeHead(200, {'content-type': response.headers['content-type'], 'Connection': 'close'})
+                  res.end(readFileSync(thumbnailLocation), 'binary')
+                }
+              })
+            })
+          } else {
+            res.status(400)
+            res.json({message: 'image exceeds than 10 MB'})
+          }
+        } else {
+          res.status(400)
+          res.json({message: 'image not found'})
+        }
+      }
+    })
+  } else {
+    res.status(400)
+    res.json({message: 'url not found'})
+  }
+})
+
+module.exports = router
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ApiAuthentications">Api Authentications</a></li><li><a href="global.html#Json-Patching">Json-Patching</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#Thumbnail-Generation">Thumbnail-Generation</a></li><li><a href="global.html#verifyToken">verify Token</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Oct 01 2017 11:37:29 GMT+0530 (IST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

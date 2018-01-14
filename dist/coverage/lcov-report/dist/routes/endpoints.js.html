@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for dist/routes/endpoints.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">dist/routes/</a> endpoints.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.4% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.19% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/62</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var _express = require('express');
+&nbsp;
+var _express2 = _interopRequireDefault(_express);
+&nbsp;
+var _jsonpatch = require('jsonpatch');
+&nbsp;
+var _path = require('path');
+&nbsp;
+var _fs = require('fs');
+&nbsp;
+var _resize = require('../imgutils/resize.js');
+&nbsp;
+var _jsonwebtoken = require('jsonwebtoken');
+&nbsp;
+var _request = require('request');
+&nbsp;
+var _request2 = _interopRequireDefault(_request);
+&nbsp;
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? <span class="branch-0 cbranch-no" title="branch not covered" >obj </span>: { default: obj }; }
+&nbsp;
+var router = _express2.default.Router();
+&nbsp;
+/**
+ * It authenticate json_patching and thumbnail_generation api
+ * @name Api Authentications
+ * @param {object} req contains headers
+ * @param {object} res contains the decoded username and password
+ * @param {function} next
+ */
+&nbsp;
+// ###################################################################################
+//                           API VALIDATIONS
+// ###################################################################################
+router.use('/', <span class="fstat-no" title="function not covered" >function (req, res, next) {</span>
+  // decode token
+<span class="cstat-no" title="statement not covered" >  var token = req.headers.authorization;</span>
+<span class="cstat-no" title="statement not covered" >  if (token) {</span>
+    // verifies secret and checks exp
+<span class="cstat-no" title="statement not covered" >    (0, _jsonwebtoken.verify)(token, 'anil', <span class="fstat-no" title="function not covered" >function (err, decoded) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(403).send({ message: 'Not authenticated' });</span>
+      } else {
+        // if everything is good, save to request for use in other routes
+<span class="cstat-no" title="statement not covered" >        req.decoded = decoded;</span>
+<span class="cstat-no" title="statement not covered" >        next();</span>
+      }
+    });
+  } else {
+<span class="cstat-no" title="statement not covered" >    return res.status(403).send({</span>
+      success: false,
+      message: 'No token provided.'
+    });
+  }
+});
+&nbsp;
+// ################################################################################
+&nbsp;
+//                          API FOR JSON_PATCHING
+&nbsp;
+// ################################################################################
+&nbsp;
+/**
+ * Api to apply json patch on json object and Update json
+ * @name Json-Patching
+ * @param {object} req contains jsonObject and Patch
+ * @param {object} res give patchedDocument op json
+ * @param {function} next
+ */
+&nbsp;
+router.post('/patch', <span class="fstat-no" title="function not covered" >function (req, res, next) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof req.body.jsonObject === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >    res.statusCode = 400;</span>
+<span class="cstat-no" title="statement not covered" >    res.json({ 'message': 'missing jsonObject' });</span>
+  } else <span class="cstat-no" title="statement not covered" >if (typeof req.body.Patch === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >    res.statusCode = 400;</span>
+<span class="cstat-no" title="statement not covered" >    res.json({ 'message': 'missing patch operations' });</span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    var jsonObject = req.body.jsonObject;</span>
+<span class="cstat-no" title="statement not covered" >    var operation = req.body.Patch;</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      var patchDocument = (0, _jsonpatch.apply_patch)(jsonObject, operation);</span>
+<span class="cstat-no" title="statement not covered" >      res.statusCode = 200;</span>
+<span class="cstat-no" title="statement not covered" >      res.json({ patch: patchDocument });</span>
+    } catch (e) {
+<span class="cstat-no" title="statement not covered" >      res.statusCode = 400;</span>
+<span class="cstat-no" title="statement not covered" >      res.json({ 'message': 'wrong patch operations' });</span>
+    }
+  }
+});
+&nbsp;
+// ####################################################################################
+&nbsp;
+//                    API FOR THUMBNAIL_GENERATIONS
+&nbsp;
+// ####################################################################################
+/**
+ * Create thumbnail of image
+ * @name Thumbnail-Generation
+ * @param {object} req contains the url of image
+ * @param {object} res gives the thumnail image of 50*50 size
+ * @param {function} next
+ */
+//
+router.post('/thumbnail', <span class="fstat-no" title="function not covered" >function (req, res, next) {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof req.query.imageUrl !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >    var imageUrl = req.query.imageUrl;</span>
+<span class="cstat-no" title="statement not covered" >    _request2.default.head(imageUrl, <span class="fstat-no" title="function not covered" >function (err, response, body) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        next(err);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        var contentType = response.headers['content-type'].substring(0, 5);</span>
+<span class="cstat-no" title="statement not covered" >        var imgFormat = response.headers['content-type'].substring(6);</span>
+<span class="cstat-no" title="statement not covered" >        var date = response.headers['date'].split(' ').join('_');</span>
+<span class="cstat-no" title="statement not covered" >        if (response.statusCode === 200 &amp;&amp; contentType === 'image') {</span>
+<span class="cstat-no" title="statement not covered" >          if (response.headers['content-length'] &lt;= 10 * 1024 * 1024) {</span>
+<span class="cstat-no" title="statement not covered" >            var originalLocation = (0, _path.resolve)((0, _path.join)(baseDirectory, 'img')) + '/original_' + date + '.' + imgFormat;</span>
+<span class="cstat-no" title="statement not covered" >            var thumbnailLocation = (0, _path.resolve)((0, _path.join)(baseDirectory, 'img')) + '/thumbnail_' + date + '.' + imgFormat;</span>
+<span class="cstat-no" title="statement not covered" >            var stream = _request2.default.get(imageUrl).pipe((0, _fs.createWriteStream)(originalLocation));</span>
+<span class="cstat-no" title="statement not covered" >            stream.on('finish', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              (0, _resize.thumbnailSize)(originalLocation, thumbnailLocation, <span class="fstat-no" title="function not covered" >function (err, out) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                  next(err);</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                  res.writeHead(200, { 'content-type': response.headers['content-type'], 'Connection': 'close' });</span>
+<span class="cstat-no" title="statement not covered" >                  res.end((0, _fs.readFileSync)(thumbnailLocation), 'binary');</span>
+                }
+              });
+            });
+          } else {
+<span class="cstat-no" title="statement not covered" >            res.status(400);</span>
+<span class="cstat-no" title="statement not covered" >            res.json({ message: 'image exceeds than 10 MB' });</span>
+          }
+        } else {
+<span class="cstat-no" title="statement not covered" >          res.status(400);</span>
+<span class="cstat-no" title="statement not covered" >          res.json({ message: 'image not found' });</span>
+        }
+      }
+    });
+  } else {
+<span class="cstat-no" title="statement not covered" >    res.status(400);</span>
+<span class="cstat-no" title="statement not covered" >    res.json({ message: 'url not found' });</span>
+  }
+});
+&nbsp;
+module.exports = router;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 01 2017 22:41:12 GMT+0530 (IST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
